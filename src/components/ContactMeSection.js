@@ -45,7 +45,7 @@ const LandingSection = () => {
       firstName: Yup.string().required('Name is required'),
       email: Yup.string().email('Invalid email address').required('Email is required'),
       type: Yup.string().required('Type of enquiry is required'),
-      comment: Yup.string().required('Your message is required'),
+      comment: Yup.string().required('Your message is required').min(25, "Must be at least 25 characters"),
     }),
   });
 
