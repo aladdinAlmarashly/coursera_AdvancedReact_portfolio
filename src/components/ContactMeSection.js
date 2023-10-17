@@ -29,11 +29,8 @@ const LandingSection = () => {
       comment: "",
     },
     onSubmit: async (values) => {
-
+      await submit('', values);
       try {
-        await submit('',values)
-
-        console.log(response);
         if (response.type === 'success') {
           onOpen('success', response.message);
           formik.resetForm();
@@ -87,7 +84,7 @@ const LandingSection = () => {
               </FormControl>
               <FormControl>
                 <FormLabel htmlFor="type">Type of enquiry</FormLabel>
-                <Select id="type" name="type" defaultValue='hireMe' {...formik.getFieldProps('type')}>
+                <Select id="type" name="type" {...formik.getFieldProps('type')} value='hireMe'>
                   <option value="hireMe">Freelance project proposal</option>
                   <option value="openSource">
                     Open source consultancy session
